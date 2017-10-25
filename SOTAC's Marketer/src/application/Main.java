@@ -1,5 +1,6 @@
 package application;
 	
+import application.scenes.MainScene;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -41,8 +42,9 @@ public class Main extends Application {
 	private void setUpUI(Stage primaryStage) {
 		primaryStage.setTitle(References.GET_APP_TITLE());
 		BorderPane root = new BorderPane();
-		Scene scene = new Scene(root, 800, 640);
-		primaryStage.setScene(scene);
+//		Scene scene = new Scene(root, 800, 640);
+		MainScene mainScene = new MainScene(root, 800, 600);
+		primaryStage.setScene(mainScene);
 		primaryStage.show();
 	}
 	
