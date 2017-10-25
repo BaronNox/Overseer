@@ -1,0 +1,1052 @@
+[
+  {
+    "name": "Arkonor",
+    "id": 22,
+    "status": 0,
+    "m3": 16,
+    "hold": {
+      "34": 22000,
+      "36": 2500,
+      "40": 320
+    }
+  },
+  {
+    "name": "Crimson Arkonor",
+    "id": 17425,
+    "status": 0,
+    "m3": 16,
+    "hold": {
+      "34": 23100,
+      "36": 2625,
+      "40": 336
+    }
+  },
+  {
+    "name": "Prime Arkonor",
+    "id": 17426,
+    "status": 0,
+    "m3": 16,
+    "hold": {
+      "34": 24100,
+      "36": 2750,
+      "40": 352
+    }
+  },
+  {
+    "name": "Compressed Arkonor",
+    "id": 28367,
+    "status": 1,
+    "m3": 8.80,
+    "hold": {
+      "34": 22000,
+      "36": 2500,
+      "40": 320
+    }
+  },
+  {
+    "name": "Compressed Crimson Arkonor",
+    "id": 28385,
+    "status": 1,
+    "m3": 8.80,
+    "hold": {
+      "34": 23100,
+      "36": 2625,
+      "40": 336
+    }
+  },
+  {
+    "name": "Compressed Prime Arkonor",
+    "id": 28387,
+    "status": 1,
+    "m3": 8.80,
+    "hold": {
+      "34": 24100,
+      "36": 2750,
+      "40": 352
+    }
+  },
+  {
+    "name": "Bistot",
+    "id": 1223,
+    "status": 0,
+    "m3": 16,
+    "hold": {
+      "35": 12000,
+      "39": 450,
+      "40": 100
+    }
+  },
+  {
+    "name": "Triclinic Bistot",
+    "id": 17428,
+    "status": 0,
+    "m3": 16,
+    "hold": {
+      "35": 12600,
+      "39": 473,
+      "40": 105
+    }
+  },
+  {
+    "name": "Monoclinic Bistot",
+    "id": 17429,
+    "status": 0,
+    "m3": 16,
+    "hold": {
+      "35": 13200,
+      "39": 495,
+      "40": 110
+    }
+  },
+  {
+    "name": "Compressed Bistot",
+    "id": 28388,
+    "status": 1,
+    "m3": 4.40,
+    "hold": {
+      "35": 12000,
+      "39": 450,
+      "40": 100
+    }
+  },
+  {
+    "name": "Compressed Triclinic Bistot",
+    "id": 28390,
+    "status": 1,
+    "m3": 4.40,
+    "hold": {
+      "35": 12600,
+      "39": 473,
+      "40": 105
+    }
+  },
+  {
+    "name": "Compressed Monoclinic Bistot",
+    "id": 28389,
+    "status": 1,
+    "m3": 16,
+    "hold": {
+      "35": 13200,
+      "39": 495,
+      "40": 110
+    }
+  },
+  {
+    "name": "Crokite",
+    "id": 1225,
+    "status": 0,
+    "m3": 16,
+    "hold": {
+      "34": 21000,
+      "38": 760,
+      "39": 135
+    }
+  },
+  {
+    "name": "Sharp Crokite",
+    "id": 17432,
+    "status": 0,
+    "m3": 16,
+    "hold": {
+      "34": 22050,
+      "38": 798,
+      "39": 142
+    }
+  },
+  {
+    "name": "Crystalline Crokite",
+    "id": 17433,
+    "status": 0,
+    "m3": 16,
+    "hold": {
+      "34": 23100,
+      "38": 836,
+      "39": 149
+    }
+  },
+  {
+    "name": "Compressed Crokite",
+    "id": 28391,
+    "status": 1,
+    "m3": 7.81,
+    "hold": {
+      "34": 21000,
+      "38": 760,
+      "39": 135
+    }
+  },
+  {
+    "name": "Compressed Sharp Crokite",
+    "id": 28393,
+    "status": 1,
+    "m3": 7.81,
+    "hold": {
+      "34": 22050,
+      "38": 798,
+      "39": 142
+    }
+  },
+  {
+    "name": "Compressed Crystalline Crokite",
+    "id": 28392,
+    "status": 1,
+    "m3": 7.81,
+    "hold": {
+      "34": 23100,
+      "38": 836,
+      "39": 149
+    }
+  },
+  {
+    "name": "Dark Ochre",
+    "id": 1232,
+    "status": 0,
+    "m3": 8,
+    "hold": {
+      "34": 10000,
+      "37": 1600,
+      "38": 120
+    }
+  },
+  {
+    "name": "Onyx Ochre",
+    "id": 17436,
+    "status": 0,
+    "m3": 8,
+    "hold": {
+      "34": 10500,
+      "37": 1680,
+      "38": 126
+    }
+  },
+  {
+    "name": "Obsidian Ochre",
+    "id": 17437,
+    "status": 0,
+    "m3": 8,
+    "hold": {
+      "34": 11000,
+      "37": 1760,
+      "38": 132
+    }
+  },
+  {
+    "name": "Compressed Dark Ochre",
+    "id": 28394,
+    "status": 1,
+    "m3": 4.2,
+    "hold": {
+      "34": 10000,
+      "37": 1600,
+      "38": 120
+    }
+  },
+  {
+    "name": "Compressed Onyx Ochre",
+    "id": 28396,
+    "status": 1,
+    "m3": 4.2,
+    "hold": {
+      "34": 10500,
+      "37": 1680,
+      "38": 126
+    }
+  },
+  {
+    "name": "Compressed Obsidian Ochre",
+    "id": 28395,
+    "status": 1,
+    "m3": 4.2,
+    "hold": {
+      "34": 11000,
+      "37": 1760,
+      "38": 132
+    }
+  },
+  {
+    "name": "Gneiss",
+    "id": 1229,
+    "status": 0,
+    "m3": 5,
+    "hold": {
+      "35": 2200,
+      "36": 2400,
+      "37": 300
+    }
+  },
+  {
+    "name": "Iridescent Gneiss",
+    "id": 17865,
+    "status": 0,
+    "m3": 5,
+    "hold": {
+      "35": 2310,
+      "36": 2520,
+      "37": 315
+    }
+  },
+  {
+    "name": "Prismatic Gneiss",
+    "id": 17866,
+    "status": 0,
+    "m3": 5,
+    "hold": {
+      "35": 2420,
+      "36": 2640,
+      "37": 330
+    }
+  },
+  {
+    "name": "Compressed Gneiss",
+    "id": 28397,
+    "status": 1,
+    "m3": 1.8,
+    "hold": {
+      "35": 2200,
+      "36": 2400,
+      "37": 300
+    }
+  },
+  {
+    "name": "Compressed Iridescent Gneiss",
+    "id": 28398,
+    "status": 1,
+    "m3": 1.8,
+    "hold": {
+      "35": 2310,
+      "36": 2520,
+      "37": 315
+    }
+  },
+  {
+    "name": "Compressed Prismatic Gneiss",
+    "id": 28399,
+    "status": 1,
+    "m3": 1.8,
+    "hold": {
+      "35": 2420,
+      "36": 2640,
+      "37": 330
+    }
+  },
+  {
+    "name": "Hedbergite",
+    "id": 21,
+    "status": 0,
+    "m3": 3,
+    "hold": {
+      "35": 1000,
+      "37": 200,
+      "38": 100,
+      "39": 19
+    }
+  },
+  {
+    "name": "Vitric Hedbergite",
+    "id": 17440,
+    "status": 0,
+    "m3": 3,
+    "hold": {
+      "35": 1050,
+      "37": 210,
+      "38": 105,
+      "39": 20
+    }
+  },
+  {
+    "name": "Glazed Hedbergite",
+    "id": 17441,
+    "status": 0,
+    "m3": 3,
+    "hold": {
+      "35": 1100,
+      "37": 220,
+      "38": 110,
+      "39": 21
+    }
+  },
+  {
+    "name": "Compressed Hedbergite",
+    "id": 28401,
+    "status": 1,
+    "m3": 0.47,
+    "hold": {
+      "35": 1000,
+      "37": 200,
+      "38": 100,
+      "39": 19
+    }
+  },
+  {
+    "name": "Compressed Vitric Hedbergite",
+    "id": 28402,
+    "status": 1,
+    "m3": 0.47,
+    "hold": {
+      "35": 1050,
+      "37": 210,
+      "38": 105,
+      "39": 20
+    }
+  },
+  {
+    "name": "Compressed Glazed Hedbergite",
+    "id": 28400,
+    "status": 1,
+    "m3": 0.47,
+    "hold": {
+      "35": 1100,
+      "37": 220,
+      "38": 110,
+      "39": 21
+    }
+  },
+  {
+    "name": "Hemorphite",
+    "id": 1231,
+    "status": 0,
+    "m3": 3,
+    "hold": {
+      "34": 2200,
+      "37": 100,
+      "38": 120,
+      "39": 15
+    }
+  },
+  {
+    "name": "Vivid Hemorphite",
+    "id": 17444,
+    "status": 0,
+    "m3": 3,
+    "hold": {
+      "34": 2310,
+      "37": 105,
+      "38": 126,
+      "39": 16
+    }
+  },
+  {
+    "name": "Radiant Hemorphite",
+    "id": 17445,
+    "status": 0,
+    "m3": 3,
+    "hold": {
+      "34": 2420,
+      "37": 110,
+      "38": 132,
+      "39": 17
+    }
+  },
+  {
+    "name": "Compressed Hemorphite",
+    "id": 28403,
+    "status": 1,
+    "m3": 0.86,
+    "hold": {
+      "34": 2200,
+      "37": 100,
+      "38": 120,
+      "39": 15
+    }
+  },
+  {
+    "name": "Compressed Vivid Hemorphite",
+    "id": 28405,
+    "status": 1,
+    "m3": 0.86,
+    "hold": {
+      "34": 2310,
+      "37": 105,
+      "38": 126,
+      "39": 16
+    }
+  },
+  {
+    "name": "Compressed Radiant Hemorphite",
+    "id": 28404,
+    "status": 1,
+    "m3": 0.86,
+    "hold": {
+      "34": 2420,
+      "37": 110,
+      "38": 132,
+      "39": 17
+    }
+  },
+  {
+    "name": "Jaspet",
+    "id": 1226,
+    "status": 0,
+    "m3": 2,
+    "hold": {
+      "36": 350,
+      "38": 75,
+      "39": 8
+    }
+  },
+  {
+    "name": "Pure Jaspet",
+    "id": 17448,
+    "status": 0,
+    "m3": 2,
+    "hold": {
+      "36": 368,
+      "38": 79,
+      "39": 8
+    }
+  },
+  {
+    "name": "Pristine Jaspet",
+    "id": 17449,
+    "status": 0,
+    "m3": 2,
+    "hold": {
+      "36": 386,
+      "38": 83,
+      "39": 9
+    }
+  },
+  {
+    "name": "Compressed Jaspet",
+    "id": 28406,
+    "status": 1,
+    "m3": 0.15,
+    "hold": {
+      "36": 350,
+      "38": 75,
+      "39": 8
+    }
+  },
+  {
+    "name": "Compressed Pure Jaspet",
+    "id": 28408,
+    "status": 1,
+    "m3": 0.15,
+    "hold": {
+      "36": 368,
+      "38": 79,
+      "39": 8
+    }
+  },
+  {
+    "name": "Compressed Pristine Jaspet",
+    "id": 28407,
+    "status": 1,
+    "m3": 0.15,
+    "hold": {
+      "36": 386,
+      "38": 83,
+      "39": 9
+    }
+  },
+  {
+    "name": "Kernite",
+    "id": 20,
+    "status": 0,
+    "m3": 1.2,
+    "hold": {
+      "34": 134,
+      "36": 267,
+      "37": 134
+    }
+  },
+  {
+    "name": "Luminous Kernite",
+    "id": 17452,
+    "status": 0,
+    "m3": 1.2,
+    "hold": {
+      "34": 141,
+      "36": 281,
+      "37": 141
+    }
+  },
+  {
+    "name": "Fiery Kernite",
+    "id": 17453,
+    "status": 0,
+    "m3": 1.2,
+    "hold": {
+      "34": 148,
+      "36": 294,
+      "37": 148
+    }
+  },
+  {
+    "name": "Compressed Kernite",
+    "id": 28410,
+    "status": 1,
+    "m3": 0.19,
+    "hold": {
+      "34": 134,
+      "36": 267,
+      "37": 134
+    }
+  },
+  {
+    "name": "Compressed Luminous Kernite",
+    "id": 28411,
+    "status": 1,
+    "m3": 0.19,
+    "hold": {
+      "34": 141,
+      "36": 281,
+      "37": 141
+    }
+  },
+  {
+    "name": "Compressed Fiery Kernite",
+    "id": 28409,
+    "status": 1,
+    "m3": 0.19,
+    "hold": {
+      "34": 148,
+      "36": 294,
+      "37": 148
+    }
+  },
+  {
+    "name": "Mercoxit",
+    "id": 11396,
+    "status": 0,
+    "m3": 40,
+    "hold": {
+      "11399": 300
+    }
+  },
+  {
+    "name": "Magma Mercoxit",
+    "id": 17869,
+    "status": 0,
+    "m3": 40,
+    "hold": {
+      "11399": 315
+    }
+  },
+  {
+    "name": "Vitreous Mercoxit",
+    "id": 17870,
+    "status": 0,
+    "m3": 40,
+    "hold": {
+      "11399": 330
+    }
+  },
+  {
+    "name": "Compressed Mercoxit",
+    "id": 28413,
+    "status": 1,
+    "m3": 0.1,
+    "hold": {
+      "11399": 300
+    }
+  },
+  {
+    "name": "Compressed Magma Mercoxit",
+    "id": 28412,
+    "status": 1,
+    "m3": 0.1,
+    "hold": {
+      "11399": 315
+    }
+  },
+  {
+    "name": "Compressed Vitreous Mercoxit",
+    "id": 28414,
+    "status": 1,
+    "m3": 0.1,
+    "hold": {
+      "11399": 330
+    }
+  },
+  {
+    "name": "Omber",
+    "id": 1227,
+    "status": 0,
+    "m3": 0.6,
+    "hold": {
+      "34": 800,
+      "35": 100,
+      "37": 85
+    }
+  },
+  {
+    "name": "Silvery Omber",
+    "id": 17867,
+    "status": 0,
+    "m3": 0.6,
+    "hold": {
+      "34": 840,
+      "35": 105,
+      "37": 90
+    }
+  },
+  {
+    "name": "Golden Omber",
+    "id": 17868,
+    "status": 0,
+    "m3": 0.6,
+    "hold": {
+      "34": 880,
+      "35": 110,
+      "37": 94
+    }
+  },
+  {
+    "name": "Compressed Omber",
+    "id": 28416,
+    "status": 1,
+    "m3": 0.3,
+    "hold": {
+      "34": 800,
+      "35": 100,
+      "37": 85
+    }
+  },
+  {
+    "name": "Compressed Silvery Omber",
+    "id": 28417,
+    "status": 1,
+    "m3": 0.3,
+    "hold": {
+      "34": 840,
+      "35": 105,
+      "37": 90
+    }
+  },
+  {
+    "name": "Compressed Golden Omber",
+    "id": 28415,
+    "status": 1,
+    "m3": 0.3,
+    "hold": {
+      "34": 880,
+      "35": 110,
+      "37": 94
+    }
+  },
+  {
+    "name": "Plagioclase",
+    "id": 18,
+    "status": 0,
+    "m3": 0.35,
+    "hold": {
+      "34": 107,
+      "35": 213,
+      "36": 107
+    }
+  },
+  {
+    "name": "Azure Plagioclase",
+    "id": 17455,
+    "status": 0,
+    "m3": 0.35,
+    "hold": {
+      "34": 113,
+      "35": 224,
+      "36": 113
+    }
+  },
+  {
+    "name": "Rich Plagioclase",
+    "id": 17456,
+    "status": 0,
+    "m3": 0.35,
+    "hold": {
+      "34": 118,
+      "35": 235,
+      "36": 118
+    }
+  },
+  {
+    "name": "Compressed Plagioclase",
+    "id": 28422,
+    "status": 1,
+    "m3": 0.15,
+    "hold": {
+      "34": 107,
+      "35": 213,
+      "36": 107
+    }
+  },
+  {
+    "name": "Compressed Azure Plagioclase",
+    "id": 28421,
+    "status": 1,
+    "m3": 0.15,
+    "hold": {
+      "34": 113,
+      "35": 224,
+      "36": 113
+    }
+  },
+  {
+    "name": "Compressed Rich Plagioclase",
+    "id": 28423,
+    "status": 1,
+    "m3": 0.15,
+    "hold": {
+      "34": 118,
+      "35": 235,
+      "36": 118
+    }
+  },
+  {
+    "name": "Pyroxeres",
+    "id": 1224,
+    "status": 0,
+    "m3": 0.3,
+    "hold": {
+      "34": 351,
+      "35": 25,
+      "36": 50,
+      "38": 5
+    }
+  },
+  {
+    "name": "Solid Pyroxeres",
+    "id": 17459,
+    "status": 0,
+    "m3": 0.3,
+    "hold": {
+      "34": 369,
+      "35": 26,
+      "36": 53,
+      "38": 5
+    }
+  },
+  {
+    "name": "Viscous Pyroxeres",
+    "id": 17460,
+    "status": 0,
+    "m3": 0.3,
+    "hold": {
+      "34": 387,
+      "35": 27,
+      "36": 55,
+      "38": 5
+    }
+  },
+  {
+    "name": "Compressed Pyroxeres",
+    "id": 28424,
+    "status": 1,
+    "m3": 0.16,
+    "hold": {
+      "34": 351,
+      "35": 25,
+      "36": 50,
+      "38": 5
+    }
+  },
+  {
+    "name": "Compressed Solid Pyroxeres",
+    "id": 28425,
+    "status": 1,
+    "m3": 0.16,
+    "hold": {
+      "34": 369,
+      "35": 26,
+      "36": 53,
+      "38": 5
+    }
+  },
+  {
+    "name": "Compressed Viscous Pyroxeres",
+    "id": 28426,
+    "status": 1,
+    "m3": 0.16,
+    "hold": {
+      "34": 387,
+      "35": 27,
+      "36": 55,
+      "38": 5
+    }
+  },
+  {
+    "name": "Scordite",
+    "id": 1228,
+    "status": 0,
+    "m3": 0.15,
+    "hold": {
+      "34": 346,
+      "35": 173
+    }
+  },
+  {
+    "name": "Condensed Scordite",
+    "id": 17463,
+    "status": 0,
+    "m3": 0.15,
+    "hold": {
+      "34": 364,
+      "35": 182
+    }
+  },
+  {
+    "name": "Massive Scordite",
+    "id": 17464,
+    "status": 0,
+    "m3": 0.15,
+    "hold": {
+      "34": 381,
+      "35": 190
+    }
+  },
+  {
+    "name": "Compressed Scordite",
+    "id": 28429,
+    "status": 1,
+    "m3": 0.19,
+    "hold": {
+      "34": 346,
+      "35": 173
+    }
+  },
+  {
+    "name": "Compressed Condensed Scordite",
+    "id": 28427,
+    "status": 1,
+    "m3": 0.19,
+    "hold": {
+      "34": 364,
+      "35": 182
+    }
+  },
+  {
+    "name": "Compressed Massive Scordite",
+    "id": 28428,
+    "status": 1,
+    "m3": 0.19,
+    "hold": {
+      "34": 381,
+      "35": 190
+    }
+  },
+  {
+    "name": "Spodumain",
+    "id": 19,
+    "status": 0,
+    "m3": 16,
+    "hold": {
+      "34": 56000,
+      "35": 12050,
+      "36": 2100,
+      "37": 450
+    }
+  },
+  {
+    "name": "Bright Spodumain",
+    "id": 17466,
+    "status": 0,
+    "m3": 16,
+    "hold": {
+      "34": 58800,
+      "35": 12653,
+      "36": 2205,
+      "37": 473
+    }
+  },
+  {
+    "name": "Gleaming Spodumain",
+    "id": 17467,
+    "status": 0,
+    "m3": 16,
+    "hold": {
+      "34": 61600,
+      "35": 13255,
+      "36": 2310,
+      "37": 495
+    }
+  },
+  {
+    "name": "Compressed Spodumain",
+    "id": 28420,
+    "status": 1,
+    "m3": 28,
+    "hold": {
+      "34": 56000,
+      "35": 12050,
+      "36": 2100,
+      "37": 450
+    }
+  },
+  {
+    "name": "Compressed Bright Spodumain",
+    "id": 28418,
+    "status": 1,
+    "m3": 28,
+    "hold": {
+      "34": 58800,
+      "35": 12653,
+      "36": 2205,
+      "37": 473
+    }
+  },
+  {
+    "name": "Compressed Gleaming Spodumain",
+    "id": 28419,
+    "status": 1,
+    "m3": 28,
+    "hold": {
+      "34": 61600,
+      "35": 13255,
+      "36": 2310,
+      "37": 495
+    }
+  },
+  {
+    "name": "Veldspar",
+    "id": 1230,
+    "status": 0,
+    "m3": 0.1,
+    "hold": {
+      "34": 415
+    }
+  },
+  {
+    "name": "Concentrated Veldspar",
+    "id": 17470,
+    "status": 0,
+    "m3": 0.1,
+    "hold": {
+      "34": 436
+    }
+  },
+  {
+    "name": "Dense Veldspar",
+    "id": 17471,
+    "status": 0,
+    "m3": 0.1,
+    "hold": {
+      "34": 457
+    }
+  },
+  {
+    "name": "Compressed Veldspar",
+    "id": 28432,
+    "status": 1,
+    "m3": 0.15,
+    "hold": {
+      "34": 415
+    }
+  },
+  {
+    "name": "Compressed Concentrated Veldspar",
+    "id": 28430,
+    "status": 1,
+    "m3": 0.15,
+    "hold": {
+      "34": 436
+    }
+  },
+  {
+    "name": "Compressed Dense Veldspar",
+    "id": 28431,
+    "status": 1,
+    "m3": 0.15,
+    "hold": {
+      "34": 457
+    }
+  }
+]

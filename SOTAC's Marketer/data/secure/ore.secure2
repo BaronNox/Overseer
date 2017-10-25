@@ -1,0 +1,392 @@
+[
+  {
+    "name": "Arkonor",
+    "id": 22,
+    "m3": 12.3,
+    "hold": {
+      "001": 300,
+      "002": 300
+    },
+    "parent": "eins"
+  },
+  {
+    "name": "Crimson Arkonor",
+    "id": 17425
+  },
+  {
+    "name": "Prime Arkonor",
+    "id": 17426
+  },
+  {
+    "name": "Compressed Arkonor",
+    "id": 28367
+  },
+  {
+    "name": "Compressed Crimson Arkonor",
+    "id": 28385
+  },
+  {
+    "name": "Compressed Prime Arkonor",
+    "id": 28387
+  },
+  {
+    "name": "Bistot",
+    "id": 1223
+  },
+  {
+    "name": "Triclinic Bistot",
+    "id": 17428
+  },
+  {
+    "name": "Monoclinic Bistot",
+    "id": 17429
+  },
+  {
+    "name": "Compressed Bistot",
+    "id": 28388
+  },
+  {
+    "name": "Compressed Triclinic Bistot",
+    "id": 28390
+  },
+  {
+    "name": "Compressed Monoclinic Bistot",
+    "id": 28389
+  },
+  {
+    "name": "Crokite",
+    "id": 1225
+  },
+  {
+    "name": "Sharp Crokite",
+    "id": 17432
+  },
+  {
+    "name": "Crystalline Crokite",
+    "id": 17433
+  },
+  {
+    "name": "Compressed Crokite",
+    "id": 28391
+  },
+  {
+    "name": "Compressed Sharp Crokite",
+    "id": 28393
+  },
+  {
+    "name": "Compressed Crystalline Crokite",
+    "id": 28392
+  },
+  {
+    "name": "Dark Ochre",
+    "id": 1232
+  },
+  {
+    "name": "Onyx Ochre",
+    "id": 17436
+  },
+  {
+    "name": "Obsidian Ochre",
+    "id": 17437
+  },
+  {
+    "name": "Compressed Dark Ochre",
+    "id": 28394
+  },
+  {
+    "name": "Compressed Onyx Ochre",
+    "id": 28396
+  },
+  {
+    "name": "Compressed Obsidian Ochre",
+    "id": 28395
+  },
+  {
+    "name": "Gneiss",
+    "id": 1229
+  },
+  {
+    "name": "Iridescent Gneiss",
+    "id": 17865
+  },
+  {
+    "name": "Prismatic Gneiss",
+    "id": 17866
+  },
+  {
+    "name": "Compressed Gneiss",
+    "id": 28397
+  },
+  {
+    "name": "Compressed Iridescent Gneiss",
+    "id": 28398
+  },
+  {
+    "name": "Compressed Prismatic Gneiss",
+    "id": 28399
+  },
+  {
+    "name": "Hedbergite",
+    "id": 21
+  },
+  {
+    "name": "Vitric Hedbergite",
+    "id": 17440
+  },
+  {
+    "name": "Glazed Hedbergite",
+    "id": 17441
+  },
+  {
+    "name": "Compressed Hedbergite",
+    "id": 28401
+  },
+  {
+    "name": "Compressed Vitric Hedbergite",
+    "id": 28402
+  },
+  {
+    "name": "Compressed Glazed Hedbergite",
+    "id": 28400
+  },
+  {
+    "name": "Hemorphite",
+    "id": 1231
+  },
+  {
+    "name": "Vivid Hemorphite",
+    "id": 17444
+  },
+  {
+    "name": "Radiant Hemorphite",
+    "id": 17445
+  },
+  {
+    "name": "Compressed Hemorphite",
+    "id": 28403
+  },
+  {
+    "name": "Compressed Vivid Hemorphite",
+    "id": 28405
+  },
+  {
+    "name": "Compressed Radiant Hemorphite",
+    "id": 28404
+  },
+  {
+    "name": "Jaspet",
+    "id": 1226
+  },
+  {
+    "name": "Pure Jaspet",
+    "id": 17448
+  },
+  {
+    "name": "Pristine Jaspet",
+    "id": 17449
+  },
+  {
+    "name": "Compressed Jaspet",
+    "id": 28406
+  },
+  {
+    "name": "Compressed Pure Jaspet",
+    "id": 28408
+  },
+  {
+    "name": "Compressed Pristine Jaspet",
+    "id": 28407
+  },
+  {
+    "name": "Kernite",
+    "id": 20
+  },
+  {
+    "name": "Luminous Kernite",
+    "id": 17452
+  },
+  {
+    "name": "Fiery Kernite",
+    "id": 17453
+  },
+  {
+    "name": "Compressed Kernite",
+    "id": 28410
+  },
+  {
+    "name": "Compressed Luminous Kernite",
+    "id": 28411
+  },
+  {
+    "name": "Compressed Fiery Kernite",
+    "id": 28409
+  },
+  {
+    "name": "Mercoxit",
+    "id": 11396
+  },
+  {
+    "name": "Magma Mercoxit",
+    "id": 17869
+  },
+  {
+    "name": "Vitreous Mercoxit",
+    "id": 17870
+  },
+  {
+    "name": "Compressed Mercoxit",
+    "id": 28413
+  },
+  {
+    "name": "Compressed Magma Mercoxit",
+    "id": 28412
+  },
+  {
+    "name": "Compressed Vitreous Mercoxit",
+    "id": 28414
+  },
+  {
+    "name": "Omber",
+    "id": 1227
+  },
+  {
+    "name": "Silvery Omber",
+    "id": 17867
+  },
+  {
+    "name": "Golden Omber",
+    "id": 17868
+  },
+  {
+    "name": "Compressed Omber",
+    "id": 28416
+  },
+  {
+    "name": "Compressed Silvery Omber",
+    "id": 28417
+  },
+  {
+    "name": "Compressed Golden Omber",
+    "id": 28415
+  },
+  {
+    "name": "Plagioclase",
+    "id": 18
+  },
+  {
+    "name": "Azure Plagioclase",
+    "id": 17455
+  },
+  {
+    "name": "Rich Plagioclase",
+    "id": 17456
+  },
+  {
+    "name": "Compressed Plagioclase",
+    "id": 28422
+  },
+  {
+    "name": "Compressed Azure Plagioclase",
+    "id": 28421
+  },
+  {
+    "name": "Compressed Rich Plagioclase",
+    "id": 28423
+  },
+  {
+    "name": "Pyroxeres",
+    "id": 1224
+  },
+  {
+    "name": "Viscous Pyroxeres",
+    "id": 17460
+  },
+  {
+    "name": "Solid Pyroxeres",
+    "id": 17459
+  },
+  {
+    "name": "Compressed Pyroxeres",
+    "id": 28424
+  },
+  {
+    "name": "Compressed Viscous Pyroxeres",
+    "id": 28426
+  },
+  {
+    "name": "Compressed Solid Pyroxeres",
+    "id": 28425
+  },
+  {
+    "name": "Scordite",
+    "id": 1228
+  },
+  {
+    "name": "Condensed Scordite",
+    "id": 17463
+  },
+  {
+    "name": "Massive Scordite",
+    "id": 17464
+  },
+  {
+    "name": "Compressed Scordite",
+    "id": 28429
+  },
+  {
+    "name": "Compressed Condensed Scordite",
+    "id": 28427
+  },
+  {
+    "name": "Compressed Massive Scordite",
+    "id": 28428
+  },
+  {
+    "name": "Spodumain",
+    "id": 19
+  },
+  {
+    "name": "Bright Spodumain",
+    "id": 17466
+  },
+  {
+    "name": "Gleaming Spodumain",
+    "id": 17467
+  },
+  {
+    "name": "Compressed Spodumain",
+    "id": 28420
+  },
+  {
+    "name": "Compressed Bright Spodumain",
+    "id": 28418
+  },
+  {
+    "name": "Compressed Gleaming Spodumain",
+    "id": 28419
+  },
+  {
+    "name": "Veldspar",
+    "id": 1230
+  },
+  {
+    "name": "Concentrated Veldspar",
+    "id": 17470
+  },
+  {
+    "name": "Dense Veldspar",
+    "id": 17471
+  },
+  {
+    "name": "Compressed Veldspar",
+    "id": 28432
+  },
+  {
+    "name": "Compressed Concentrated Veldspar",
+    "id": 28430
+  },
+  {
+    "name": "Compressed Dense Veldspar",
+    "id": 28431
+  }
+]
