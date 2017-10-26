@@ -2,7 +2,6 @@ package net.noxumbrarum.sotacmarketer.test;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -27,7 +26,6 @@ import com.google.gson.JsonParser;
 
 import net.noxumbrarum.sotacmarketer.References;
 import net.noxumbrarum.sotacmarketer.data.InvType;
-import net.noxumbrarum.sotacmarketer.data.MarketOrder;
 import net.noxumbrarum.sotacmarketer.data.MarketOrderPage;
 import net.noxumbrarum.sotacmarketer.data.Mineral;
 import net.noxumbrarum.sotacmarketer.data.Ore;
@@ -88,6 +86,7 @@ public class DataLoader
 
 	public void loadMarketDataFromCCP()
 	{
+		//TODO: Multi-Treading
 		List<MarketOrderPage> mop = new ArrayList<>();
 		
 		URL url;
@@ -208,23 +207,6 @@ public class DataLoader
 				invType.setPortionSize(tmp.get("portionSize").getAsString());
 				invType.setRaceID(tmp.get("raceID").getAsString());
 				invType_map_local.put(invType.getTypeID(), invType);
-
-				// System.out.println(invType.getTypeID());
-				// System.out.println(invType.getBasePrice());
-				// System.out.println(invType.getPublished());
-				// System.out.println(invType.getMarketGroupID());
-				// System.out.println(invType.getIconID());
-				// System.out.println(invType.getSoundID());
-				// System.out.println(invType.getGraphicID());
-				// System.out.println(invType.getGroupID());
-				// System.out.println(invType.getTypeName());
-				// System.out.println(invType.getDesc());
-				// System.out.println(invType.getMass());
-				// System.out.println(invType.getVolume());
-				// System.out.println(invType.getCapacity());
-				// System.out.println(invType.getPortionSize());
-				// System.out.println(invType.getRaceID());
-				// System.out.println();
 			});
 
 			invType_map = invType_map_local;
