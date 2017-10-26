@@ -27,23 +27,29 @@ import com.google.gson.JsonParser;
 
 import net.noxumbrarum.sotacmarketer.References;
 import net.noxumbrarum.sotacmarketer.data.InvType;
+import net.noxumbrarum.sotacmarketer.data.MarketOrder;
+import net.noxumbrarum.sotacmarketer.data.MarketOrderPage;
 import net.noxumbrarum.sotacmarketer.data.Mineral;
 import net.noxumbrarum.sotacmarketer.data.Ore;
 
-public class DataLoader {
+public class DataLoader
+{
 	private static Map<Integer, String> typeID_map;
 	private Map<Integer, InvType> invType_map;
 
-	public DataLoader() {
+	public DataLoader()
+	{
 		typeID_map = new HashMap<>();
 	}
 
-	public void loadTypeIDsFromURL() {
+	public void loadTypeIDsFromURL()
+	{
 
 		URL url;
 		URLConnection connection;
 
-		try {
+		try
+		{
 			url = new URL(References.TYPE_ID_URL);
 			connection = url.openConnection();
 			connection.setRequestProperty("Accept-Charset", "UTF-8");
@@ -52,11 +58,15 @@ public class DataLoader {
 			connection.setRequestProperty("User-Agent",
 					"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:55.0) Gecko/20100101 Firefox/55.0");
 
-			try (BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"))) {
+			try(BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8")))
+			{
 				String line;
-				while ((line = in.readLine()) != null) {
-					if (line.matches("[0-9]+.*")) {
-						if (line.contains("\u0027")) {
+				while((line = in.readLine()) != null)
+				{
+					if(line.matches("[0-9]+.*"))
+					{
+						if(line.contains("\u0027"))
+						{
 							line = line.replaceAll("\u0027", "\'");
 							System.out.println(line);
 						}
@@ -70,69 +80,85 @@ public class DataLoader {
 				}
 			}
 
-		} catch (IOException e) {
+		} catch(IOException e)
+		{
 			e.printStackTrace();
 		}
 	}
 
-	public void loadMarketDataFromCCP() {
-
+	public void loadMarketDataFromCCP()
+	{
+		List<MarketOrderPage> mop = new ArrayList<>();
+		
 		URL url;
 		URLConnection connection;
 
-		try {
-			url = new URL(References.GET_MARKET_DATA_URL(References.THE_FORGE_ID));
-			connection = url.openConnection();
-//			connection.setRequestProperty();
-			connection.setRequestProperty("datasource", "tranquility");
-			connection.setRequestProperty("order_type", "all");
-//			connection.setRequestProperty("page", "7");
-			connection.setRequestProperty("region_id", String.valueOf(References.THE_FORGE_ID));
-//			connection.setRequestProperty("type_id", "");
+		int pageCount = 1;
+		int maxPageCount = 100;
+		JsonArray root = null;
+		try
+		{
+			for(int i = pageCount; i <= maxPageCount; i++)
+			{
+				url = new URL(References.GET_MARKET_DATA_URL(References.THE_FORGE_ID));
+				connection = url.openConnection();
+				// connection.setRequestProperty();
+				connection.setRequestProperty("datasource", "tranquility");
+				connection.setRequestProperty("order_type", "all");
+				connection.setRequestProperty("page", new Integer(pageCount).toString());
+				connection.setRequestProperty("region_id", String.valueOf(References.THE_FORGE_ID));
+				connection.setRequestProperty("type_id", "");
+				maxPageCount = Integer.valueOf(connection.getHeaderField("x-pages"));
 
-			JsonArray root;
-			try (BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"))) {
-//				String line;
-//				while ((line = in.readLine()) != null) {
-//					if (line.matches("[0-9]+.*")) {
-//						if (line.contains("\u0027")) {
-//							line = line.replaceAll("\u0027", "\'");
-//							System.out.println(line);
-//						}
-//
-//						String typeID = line.substring(0, 11).trim();
-//						String typeName = line.substring(12);
-//
-//						typeID_map.put(Integer.valueOf(typeID), typeName);
-//
-//					}
-//					System.out.println(line);
-//				}
-				JsonParser jparser = new JsonParser();
-				root = jparser.parse(in).getAsJsonArray();
+				try(BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8")))
+				{
+					System.out.println("Page: " + i);
+					System.out.println("start parsing");
+					JsonParser jparser = new JsonParser();
+					root = jparser.parse(in).getAsJsonArray();
+					System.out.println("finished parsing");
+					System.out.println();
+					
+					mop.add(new MarketOrderPage(root));
+				}
 			}
-
-		} catch (IOException e) {
+		} catch(IOException e)
+		{
 			e.printStackTrace();
 		}
+		
+		mop.forEach(page -> {
+			System.out.println();
+			System.out.println("Start processing");
+			page.processPage();
+			System.out.println("finished processing");
+		});
+		
+		System.out.println(mop.size());
 	}
 
-	public void loadTypeIDs() {
+	public void loadTypeIDs()
+	{
 		Path p = Paths.get(References.BASE_DATA_PATH, References.TYPE_ID_FILE_PATH);
 		Map<Integer, String> typeID_map_local = new HashMap<>();
 		JsonArray root = null;
 
-		try (BufferedReader br = new BufferedReader(new FileReader(p.toString()))) {
+		try(BufferedReader br = new BufferedReader(new FileReader(p.toString())))
+		{
 			JsonParser jParser = new JsonParser();
 			root = jParser.parse(br).getAsJsonArray();
-		} catch (IOException e) {
+		} catch(IOException e)
+		{
 			e.printStackTrace();
 		}
 
-		if (root != null) {
-			root.forEach(elem -> {
+		if(root != null)
+		{
+			root.forEach(elem ->
+			{
 				JsonObject tmp_elem = elem.getAsJsonObject();
-				tmp_elem.entrySet().forEach(entry -> {
+				tmp_elem.entrySet().forEach(entry ->
+				{
 					int id = Integer.valueOf(entry.getKey());
 					String name = entry.getValue().getAsString();
 					typeID_map_local.put(id, name);
@@ -140,25 +166,31 @@ public class DataLoader {
 			});
 		}
 
-		typeID_map_local.forEach((id, name) -> {
+		typeID_map_local.forEach((id, name) ->
+		{
 			System.out.println(id + ":" + name);
 		});
 	}
 
-	public void loadInvTypesFromFile() {
+	public void loadInvTypesFromFile()
+	{
 		Path p = Paths.get(References.BASE_SDD_PATH, References.ITEM_FILE_PATH);
 		Map<Integer, InvType> invType_map_local = new HashMap<>();
 		JsonArray root = null;
 
-		try (BufferedReader br = new BufferedReader(new FileReader(p.toString()))) {
+		try(BufferedReader br = new BufferedReader(new FileReader(p.toString())))
+		{
 			JsonParser jParser = new JsonParser();
 			root = jParser.parse(br).getAsJsonArray();
-		} catch (IOException e) {
+		} catch(IOException e)
+		{
 			e.printStackTrace();
 		}
 
-		if (root != null && root.size() != 0) {
-			root.forEach(v -> {
+		if(root != null && root.size() != 0)
+		{
+			root.forEach(v ->
+			{
 				JsonObject tmp = (JsonObject) v;
 				InvType invType = new InvType();
 				invType.setTypeID(tmp.get("typeID").getAsString());
@@ -199,28 +231,35 @@ public class DataLoader {
 		}
 	}
 
-	public void loadTypeEffectsFromFile() {
+	public void loadTypeEffectsFromFile()
+	{
 		Path p = Paths.get(References.BASE_SDD_PATH, References.TYPE_EFFECTS_FILE_PATH);
 		Map<Integer, List<Integer>> typeEffectMap = new HashMap<>();
 		JsonArray root = null;
 
-		try (BufferedReader br = new BufferedReader(new FileReader(p.toString()))) {
+		try(BufferedReader br = new BufferedReader(new FileReader(p.toString())))
+		{
 			JsonParser parser = new JsonParser();
 			root = parser.parse(br).getAsJsonArray();
-		} catch (IOException e) {
+		} catch(IOException e)
+		{
 			e.printStackTrace();
 		}
 
-		if (root != null && root.size() != 0) {
-			root.forEach(elem -> {
+		if(root != null && root.size() != 0)
+		{
+			root.forEach(elem ->
+			{
 				JsonObject tmp = (JsonObject) elem;
 				int typeID = tmp.get("typeID").getAsInt();
 				int effectID = tmp.get("effectID").getAsInt();
 				// int isDefault = tmp.get("isDefault").getAsInt();
 
-				if (typeEffectMap.containsKey(typeID)) {
+				if(typeEffectMap.containsKey(typeID))
+				{
 					typeEffectMap.get(typeID).add(effectID);
-				} else {
+				} else
+				{
 					ArrayList<Integer> effect = new ArrayList<>();
 					effect.add(effectID);
 					typeEffectMap.put(typeID, effect);
@@ -240,65 +279,81 @@ public class DataLoader {
 
 	}
 
-	public void saveTypeIDs() {
+	public void saveTypeIDs()
+	{
 		Path fp = Paths.get(References.BASE_DATA_PATH, References.TYPE_ID_FILE_PATH);
 		List<Integer> ids = new ArrayList<>();
 
-		if (Files.exists(fp)) {
-			try {
+		if(Files.exists(fp))
+		{
+			try
+			{
 				Files.delete(fp);
-			} catch (IOException e) {
+			} catch(IOException e)
+			{
 				e.printStackTrace();
 			}
 		}
 
-		if (typeID_map.isEmpty() || typeID_map == null) {
+		if(typeID_map.isEmpty() || typeID_map == null)
+		{
 			loadTypeIDs();
 		}
 
-		typeID_map.forEach((k, v) -> {
+		typeID_map.forEach((k, v) ->
+		{
 			ids.add(k);
 		});
 		Collections.sort(ids);
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		JsonArray root = new JsonArray();
-		ids.forEach((k) -> {
+		ids.forEach((k) ->
+		{
 			JsonObject elem = new JsonObject();
 			elem.addProperty(k.toString(), typeID_map.get(k));
 			root.add(elem);
 		});
 
-		try (BufferedWriter bw = Files.newBufferedWriter(fp, StandardCharsets.UTF_8, StandardOpenOption.CREATE_NEW)) {
+		try(BufferedWriter bw = Files.newBufferedWriter(fp, StandardCharsets.UTF_8, StandardOpenOption.CREATE_NEW))
+		{
 			bw.write(gson.toJson(root));
-		} catch (IOException e) {
+		} catch(IOException e)
+		{
 			e.printStackTrace();
-		} finally {
+		} finally
+		{
 			ids.clear();
 		}
 	}
 
-	public void loadOres() {
+	public void loadOres()
+	{
 		Path p = Paths.get(References.BASE_DATA_PATH, References.ORE_FILE_PATH);
 		List<Ore> oreList = new ArrayList<>();
 		JsonArray root = null;
 
-		try (BufferedReader br = new BufferedReader(new FileReader(p.toString()))) {
+		try(BufferedReader br = new BufferedReader(new FileReader(p.toString())))
+		{
 			JsonParser jParser = new JsonParser();
 			root = jParser.parse(br).getAsJsonArray();
-		} catch (IOException e) {
+		} catch(IOException e)
+		{
 			e.printStackTrace();
 		}
 
-		if (root != null) {
-			root.forEach((v) -> {
+		if(root != null)
+		{
+			root.forEach((v) ->
+			{
 				Ore tmp_ore = new Ore();
 				JsonObject tmp_elem = ((JsonObject) v);
 				tmp_ore.setTypeID(tmp_elem.get("id").getAsInt());
 				tmp_ore.setStatus(tmp_elem.get("status").getAsByte());
 				tmp_ore.setName(tmp_elem.get("name").getAsString());
 				tmp_ore.setM3(tmp_elem.get("m3").getAsFloat());
-				tmp_elem.get("hold").getAsJsonObject().entrySet().forEach((r) -> {
+				tmp_elem.get("hold").getAsJsonObject().entrySet().forEach((r) ->
+				{
 					tmp_ore.addToListMineral(Integer.valueOf(r.getKey()), Integer.valueOf(r.getValue().getAsString()));
 				});
 
@@ -308,20 +363,25 @@ public class DataLoader {
 		}
 	}
 
-	public void loadMinerals() {
+	public void loadMinerals()
+	{
 		Path p = Paths.get(References.BASE_DATA_PATH, References.MINERAL_FILE_PATH);
 		List<Mineral> mineralList = new ArrayList<>();
 		JsonArray root = null;
 
-		try (BufferedReader br = new BufferedReader(new FileReader(p.toString()))) {
+		try(BufferedReader br = new BufferedReader(new FileReader(p.toString())))
+		{
 			JsonParser jParser = new JsonParser();
 			root = jParser.parse(br).getAsJsonArray();
-		} catch (IOException e) {
+		} catch(IOException e)
+		{
 			e.printStackTrace();
 		}
 
-		if (root != null) {
-			root.forEach((v) -> {
+		if(root != null)
+		{
+			root.forEach((v) ->
+			{
 				Mineral tmp_mineral = new Mineral();
 				JsonObject tmp_elem = ((JsonObject) v);
 				tmp_mineral.setTypeID(tmp_elem.get("id").getAsInt());
@@ -331,7 +391,8 @@ public class DataLoader {
 			});
 		}
 
-		mineralList.forEach(v -> {
+		mineralList.forEach(v ->
+		{
 			System.out.println(v.toString());
 		});
 	}
@@ -781,7 +842,8 @@ public class DataLoader {
 	// }
 	// }
 
-	public void createMinerals() {
+	public void createMinerals()
+	{
 		Path p = Paths.get(References.BASE_DATA_PATH, References.MINERAL_FILE_PATH);
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -794,29 +856,37 @@ public class DataLoader {
 
 		root.add(tritanium);
 
-		if (Files.exists(p)) {
-			try {
+		if(Files.exists(p))
+		{
+			try
+			{
 				Files.delete(p);
-			} catch (IOException e) {
+			} catch(IOException e)
+			{
 				e.printStackTrace();
 			}
 		}
 
-		try (BufferedWriter br = Files.newBufferedWriter(p, StandardCharsets.UTF_8, StandardOpenOption.CREATE_NEW)) {
+		try(BufferedWriter br = Files.newBufferedWriter(p, StandardCharsets.UTF_8, StandardOpenOption.CREATE_NEW))
+		{
 			br.write(gson.toJson(root));
-		} catch (IOException e) {
+		} catch(IOException e)
+		{
 			e.printStackTrace();
 		}
 	}
 
-	public Map<Integer, InvType> getInvType_map() throws Exception {
-		if (invType_map == null || invType_map.size() == 0) {
+	public Map<Integer, InvType> getInvType_map() throws Exception
+	{
+		if(invType_map == null || invType_map.size() == 0)
+		{
 			throw new Exception("Map holding invTypes may not be null or of size 0");
 		}
 		return new HashMap<>(invType_map);
 	}
 
-	public static Map<Integer, String> getTypeIDList() {
+	public static Map<Integer, String> getTypeIDList()
+	{
 		return new HashMap<>(typeID_map);
 	}
 }
