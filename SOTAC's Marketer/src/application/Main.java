@@ -12,11 +12,11 @@ import net.noxumbrarum.sotacmarketer.test.DataLoader;
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
-		setUpUI(primaryStage);
+//		setUpUI(primaryStage);
 //		GetData getData = new GetData();
 //		getData.buildBody().fireReq();
-//		DataLoader dataLoader = new DataLoader();
-//		dataLoader.loadMarketDataFromCCP();
+		DataLoader dataLoader = new DataLoader();
+		dataLoader.loadMarketDataFromCCP();
 //		dataLoader.loadTypeIDs();
 //		dataLoader.loadInvTypesFromFile();
 //		dataLoader.loadTypeEffectsFromFile();
