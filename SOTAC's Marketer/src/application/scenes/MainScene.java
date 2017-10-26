@@ -1,8 +1,12 @@
 package application.scenes;
 
 import application.tabs.TabGeneric;
+import application.tabs.TabMarketOrder;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 
@@ -20,11 +24,10 @@ public class MainScene extends Scene
 	
 	private final void initGUI(Parent root) {
 		mainPane = new TabPane();
-		TabGeneric wel = new TabGeneric(mainPane);
-		TabGeneric wel1 = new TabGeneric(mainPane);
-		wel.setText("1");
+		TabMarketOrder tabMarketOrder= new TabMarketOrder();
+		TabGeneric wel1 = new TabGeneric();
 		wel1.setText("1");
-		mainPane.getTabs().add(wel);
+		mainPane.getTabs().add(tabMarketOrder);
 		mainPane.getTabs().add(wel1);
 		curTab = (TabGeneric) mainPane.getSelectionModel().getSelectedItem();
 		
