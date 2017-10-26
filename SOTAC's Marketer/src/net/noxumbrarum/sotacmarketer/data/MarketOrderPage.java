@@ -8,7 +8,7 @@ import com.google.gson.JsonObject;
 
 public class MarketOrderPage
 {
-	private final JsonArray page;
+	private JsonArray page;
 	private List<MarketOrder> orderList;
 	
 	public MarketOrderPage(JsonArray page)
@@ -44,5 +44,10 @@ public class MarketOrderPage
 			
 			orderList.add(mo);
 		});
+		page = null;
+	}
+	
+	public List<MarketOrder> getMarketOrders() {
+		return orderList;
 	}
 }
