@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 .DS_Store
 *.class
+=======
+SOTAC's Marketer/bin/*
+*.class
+.DS_Store
+>>>>>>> dev
