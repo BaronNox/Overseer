@@ -6,17 +6,21 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import net.noxumbrarum.sotacmarketer.References;
+import net.noxumbrarum.sotacmarketer.apacheTest.ApacheTest;
 import net.noxumbrarum.sotacmarketer.test.DataLoader;
 
 
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
+		ApacheTest at = new ApacheTest();
+		at.getMarketData();
+		
 //		setUpUI(primaryStage);
 //		GetData getData = new GetData();
 //		getData.buildBody().fireReq();
-		DataLoader dataLoader = new DataLoader();
-		dataLoader.loadMarketDataFromCCP();
+//		DataLoader dataLoader = new DataLoader();
+//		dataLoader.loadMarketDataFromCCP();
 //		dataLoader.loadTypeIDs();
 //		dataLoader.loadInvTypesFromFile();
 //		dataLoader.loadTypeEffectsFromFile();
