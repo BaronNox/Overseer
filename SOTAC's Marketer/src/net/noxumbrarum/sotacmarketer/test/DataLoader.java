@@ -867,7 +867,7 @@ public class DataLoader
 		return new HashMap<>(invType_map);
 	}
 
-	public static Map<Integer, String> getTypeIDList()
+	public static Map<Integer, String> getTypeID_Map()
 	{
 		return new HashMap<>(typeID_map);
 	}
