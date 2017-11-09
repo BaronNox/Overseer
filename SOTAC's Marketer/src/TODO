@@ -1,0 +1,57 @@
+ [ ] - MarketOrder location ID ->
+ 	[ ] - Station
+ 	[ ] - Structure
+ 		[ ] - Access Token for CCP ESI API
+ [ ] - Market
+ 	 [ ] - Predictions
+ 	 	[ ] - Based on Moving Averages (5/20 days)
+ 	 [ ] - Automated Notification System
+ 	 	[ ] - If price falls below X
+ 	 		[ ] - On my Orders
+ 	 		[ ] - On Type X based on moving average (x days)
+	 [ ] - Market Order Data Calculations
+	 	[ ] - Range
+		 	[ ] - Buy
+		 		[ ] - Based on ???
+		 	[ ] - Sell
+		 		[ ] - Based on ???
+	 	[ ] - Average
+		 	[ ] - Buy
+		 	[ ] - Sell
+		 	[ ] - Total
+	 	[ ] - Median
+		 	[ ] - Buy
+		 	[ ] - Sell
+		 	[ ] - Total
+	 	[ ] - Lowest Buy
+	 	[ ] - Highest Sell
+ 	[ ] - Market History
+ 		[ ] - Buy
+			[ ] - Highest
+			[ ] - Lowest
+ 		[ ] - Sell
+			[ ] - Highest
+			[ ] - Lowest
+ 		[ ] - Average
+	 		[ ] - Last 5 days
+	 		[ ] - Last 20 days
+ 		[ ] - Volume
+	 		[ ] - Buy
+	 		[ ] - Sell
+	 		[ ] - Total
+ 	
+ 	
+ [ ] - Pull Player Market Data
+ 	[ ] - Pull Sell
+ 	[ ] - Pull Buy
+ 	
+ [ ] - Pull Wallet
+ 	[ ] - Calculate Taxes
+ 	
+ [ ] - Blueprints
+ 	[ ] - Calculate best Ore compositions to buy and process (compressed and uncompressed)
+ 	[ ] - Calculate profit 
+ 		[ ] - ISK/h
+ 		[ ] - ISK/m3
+ 	
+ 
