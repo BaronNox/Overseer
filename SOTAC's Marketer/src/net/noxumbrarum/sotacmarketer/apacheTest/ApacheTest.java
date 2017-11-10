@@ -8,6 +8,8 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.print.attribute.standard.RequestingUserName;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -35,13 +37,15 @@ public class ApacheTest
 	{
 		URIBuilder builder = new URIBuilder();
 		builder.setScheme("https").setHost("esi.tech.ccp.is/latest")
-				.setPath("/markets/" + References.THE_FORGE_ID + "/orders/").setParameter("datasource", "tranquility")
-				.setParameter("order_type", "all").setParameter("page", String.valueOf(pageNumber))
+				.setPath("/markets/" + References.THE_FORGE_ID + "/orders/")
+				.setParameter("datasource", "tranquility")
+				.setParameter("order_type", "all")
+				.setParameter("page", String.valueOf(pageNumber))
 				.setParameter("region_id", String.valueOf(References.THE_FORGE_ID));
 		return builder.build();
 	}
 
-	public void getMarketData()
+	public List<MarketOrderPage> getMarketData()
 	{
 		// TEMPS
 		List<MarketOrderPage> pages = new ArrayList<>();
@@ -77,6 +81,7 @@ public class ApacheTest
 			}
 			try(BufferedReader br = new BufferedReader(new InputStreamReader(response.getEntity().getContent())))
 			{
+				System.out.println(i);
 				JsonParser parser = new JsonParser();
 				JsonArray root = null;
 				root = parser.parse(br).getAsJsonArray();
@@ -92,6 +97,8 @@ public class ApacheTest
 		int buyCounter = 0;
 		int sellCounter = 0;
 
+		
+		// --- TEST
 		for(MarketOrderPage page : pages)
 		{
 			for(MarketOrder order : page.getMarketOrders())
@@ -108,6 +115,9 @@ public class ApacheTest
 
 		System.out.println(buyCounter);
 		System.out.println(sellCounter);
-
+		//END-TEST
+		
+		return pages;
 	}
+	
 }

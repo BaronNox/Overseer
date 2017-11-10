@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import net.noxumbrarum.sotacmarketer.data.MarketOrder;
 import net.noxumbrarum.sotacmarketer.data.MarketOrderPage;
@@ -11,14 +12,21 @@ import net.noxumbrarum.sotacmarketer.data.MarketOrderPage;
 
 public class MarketOrderProcessor
 {
+	//TODO: Convert Map to List<MarketTypes> and fix #processByType
 	private Map<Integer, List<MarketOrder>> orderMap;
+	private List<MarketOrderPage> pages;
 	
 	public MarketOrderProcessor()
 	{
+		this(null);
 		orderMap = new HashMap<>();
 	}
 	
-	public void processPages(List<MarketOrderPage> pages) {
+	public MarketOrderProcessor(List<MarketOrderPage> pages) {
+		this.setMarketOrderPages(pages);
+	}
+	
+	public void processPages() {
 		pages.forEach(page -> {
 			page.getMarketOrders().forEach(order -> {
 				int id = order.getTypeID();
@@ -31,5 +39,27 @@ public class MarketOrderProcessor
 				}
 			});
 		});
+	}
+	
+	public void processByType() {
+		Set<Integer> keySet = orderMap.keySet();
+		for(Integer integer : keySet) {
+			long volume = 0;
+			double avgPrice = 0;
+			List<MarketOrder> tmpMap = orderMap.get(integer);
+			for(MarketOrder mo : tmpMap) {
+				volume += mo.getVolumeRemain();
+				avgPrice += mo.getPrice();
+			}
+			avgPrice /= (double)tmpMap.size();
+		}
+	}
+	
+	public void setMarketOrderPages(List<MarketOrderPage> pages) {
+		this.pages = pages;
+	}
+	
+	public Map<Integer, List<MarketOrder>> getOrderMapping() {
+		return this.orderMap;
 	}
 }

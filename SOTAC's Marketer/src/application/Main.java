@@ -2,24 +2,39 @@ package application;
 	
 import application.scenes.MainScene;
 import javafx.application.Application;
-import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import net.noxumbrarum.sotacmarketer.References;
 import net.noxumbrarum.sotacmarketer.apacheTest.ApacheTest;
 import net.noxumbrarum.sotacmarketer.test.DataLoader;
+import net.noxumbrarum.sotacmarketer.test.MarketOrderProcessor;
 
 
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
+		DataLoader dataLoader = new DataLoader();
+		MarketOrderProcessor orderProcessor = new MarketOrderProcessor();
+		
 		ApacheTest at = new ApacheTest();
-		at.getMarketData();
+		
+		dataLoader.loadTypeIDsFromURL();
+		
+		orderProcessor.setMarketOrderPages(at.getMarketData());
+		orderProcessor.processPages();
+		
+		orderProcessor.getOrderMapping().forEach((k, v) -> {
+			if(DataLoader.getTypeID_Map().containsKey(k)) {
+				System.out.println(k + " [" + DataLoader.getTypeID_Map().get(k) + "] " + " : " + v.size());
+			}
+			
+		});
+		
+		
 		
 //		setUpUI(primaryStage);
 //		GetData getData = new GetData();
 //		getData.buildBody().fireReq();
-//		DataLoader dataLoader = new DataLoader();
 //		dataLoader.loadMarketDataFromCCP();
 //		dataLoader.loadTypeIDs();
 //		dataLoader.loadInvTypesFromFile();
