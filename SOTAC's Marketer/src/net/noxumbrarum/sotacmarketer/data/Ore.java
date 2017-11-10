@@ -50,11 +50,11 @@ public class Ore {
 	}
 	
 	public void addToListMineral(int id, int amount) {
-		addToListMineral(id, DataLoader.getTypeIDList().get(id), amount);
+		addToListMineral(id, DataLoader.getTypeID_Map().get(id), amount);
 	}
 	
 	public void addToListMineral(String name, int amount) {
-		DataLoader.getTypeIDList().forEach((k, v) -> {
+		DataLoader.getTypeID_Map().forEach((k, v) -> {
 			if(name.equals(v)) {
 				addToListMineral(k, name, amount);
 			}
