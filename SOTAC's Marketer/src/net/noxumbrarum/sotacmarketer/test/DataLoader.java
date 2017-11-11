@@ -66,7 +66,7 @@ public class DataLoader
 						if(line.contains("\u0027"))
 						{
 							line = line.replaceAll("\u0027", "\'");
-							System.out.println(line);
+//							System.out.println(line);
 						}
 
 						String typeID = line.substring(0, 11).trim();
@@ -77,6 +77,8 @@ public class DataLoader
 					}
 				}
 			}
+			
+			System.out.println("Loading TypeIDs complete.");
 
 		} catch(IOException e)
 		{
