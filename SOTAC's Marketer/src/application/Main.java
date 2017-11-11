@@ -1,11 +1,15 @@
 package application;
 	
+import java.util.ArrayList;
+import java.util.List;
+
 import application.scenes.MainScene;
 import javafx.application.Application;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import net.noxumbrarum.sotacmarketer.References;
 import net.noxumbrarum.sotacmarketer.apacheTest.ApacheTest;
+import net.noxumbrarum.sotacmarketer.data.MarketType;
 import net.noxumbrarum.sotacmarketer.test.DataLoader;
 import net.noxumbrarum.sotacmarketer.test.MarketOrderProcessor;
 
@@ -13,6 +17,8 @@ import net.noxumbrarum.sotacmarketer.test.MarketOrderProcessor;
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
+		List<MarketType> marketTypes = new ArrayList<>();
+		
 		DataLoader dataLoader = new DataLoader();
 		MarketOrderProcessor orderProcessor = new MarketOrderProcessor();
 		
@@ -21,14 +27,21 @@ public class Main extends Application {
 		dataLoader.loadTypeIDsFromURL();
 		
 		orderProcessor.setMarketOrderPages(at.getMarketData());
-		orderProcessor.processPages();
-		
-		orderProcessor.getOrderMapping().forEach((k, v) -> {
-			if(DataLoader.getTypeID_Map().containsKey(k)) {
-				System.out.println(k + " [" + DataLoader.getTypeID_Map().get(k) + "] " + " : " + v.size());
-			}
-			
+		orderProcessor.processPages().forEach(mt -> {
+			System.out.println(mt.getMedianBuy());
+			mt.getBuy().forEach(mo -> {
+				System.out.print(mo.getPrice() + " ");
+			});
+			System.out.print(System.lineSeparator());
+			System.out.print(System.lineSeparator());
 		});
+		
+//		orderProcessor.getOrderMapping().forEach((k, v) -> {
+//			if(DataLoader.getTypeID_Map().containsKey(k)) {
+//				System.out.println(k + " [" + DataLoader.getTypeID_Map().get(k) + "] " + " : " + v.size());
+//			}
+//			
+//		});
 		
 		
 		
