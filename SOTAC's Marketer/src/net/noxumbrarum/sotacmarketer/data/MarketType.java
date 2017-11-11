@@ -82,6 +82,7 @@ public class MarketType
 		highestBuy = 0;
 		
 		buy = buy.stream().sorted(new PriceComperator()).collect(Collectors.toList());
+		sell = sell.stream().sorted(new PriceComperator()).collect(Collectors.toList());
 		
 		buy.forEach(mo -> averagePriceBuy += mo.getPrice());
 		averagePriceBuy /= (double)buy.size();
@@ -101,6 +102,33 @@ public class MarketType
 		} else {
 			medianBuy = averagePriceBuy;
 		}
+	}
+	
+	private double calculateMedian(List<MarketOrder> orderList) {
+		double result = 0;
+		
+		if(orderList.size() % 2 != 0) {
+//			medianBuy = (double)Math.round(buy.get((int)Math.floor((double)buy.size()/2.0d)).getPrice() * 100d) / 100d;
+			result = orderList.get((int)Math.floor((double)orderList.size()/2.0d)).getPrice();
+		} else if(orderList.size() > 2) {
+			int firstCell = orderList.size() / 2;
+			result = (orderList.get(firstCell - 1).getPrice() + orderList.get(firstCell).getPrice()) / 2.0d;
+		} else {
+			result = calculateAverage(orderList);
+		}
+		
+		return result;
+	}
+	
+	private double calculateAverage(List<MarketOrder> orderList) {
+		double result = 0;
+		
+		for(MarketOrder mo : orderList) {
+			result += mo.getPrice();
+		}
+		result /= (double)orderList.size();
+		
+		return result;
 	}
 	
 	public double getMedianBuy() {
