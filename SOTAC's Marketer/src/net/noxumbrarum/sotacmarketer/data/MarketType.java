@@ -108,9 +108,9 @@ public class MarketType
 		double result = 0;
 		
 		if(isBuyOrder) {
-			buy = buy.stream().sorted(new AscendingPriceComperator()).collect(Collectors.toList());
+			buy = orderList.stream().sorted(new AscendingPriceComperator()).collect(Collectors.toList());
 		} else {
-			sell = sell.stream().sorted(new DescendingPriceComperator()).collect(Collectors.toList());
+			sell = orderList.stream().sorted(new DescendingPriceComperator()).collect(Collectors.toList());
 		}
 		
 		if(orderList.size() % 2 != 0) {
