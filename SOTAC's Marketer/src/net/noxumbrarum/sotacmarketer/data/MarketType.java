@@ -29,13 +29,13 @@ public class MarketType
 		sell = new ArrayList<>();
 	}
 	
-	public MarketType(MarketOrder order) {
+	public MarketType(MarketOrder order, boolean isInit) {
 		this();
 		this.typeID = order.getTypeID();
-		this.addMarketOrder(order);
+		this.addMarketOrder(order, isInit);
 	}
 	
-	public void addMarketOrder(MarketOrder marketOrder) {
+	public void addMarketOrder(MarketOrder marketOrder, boolean isInit) {
 		boolean found = false;
 		if(marketOrder.isBuyOrder()) {
 			for(MarketOrder order : buy) {
@@ -48,6 +48,7 @@ public class MarketType
 			if(!found) {
 				buy.add(marketOrder);
 			}
+			if(!isInit) updateMetaDataBuy();
 		} else {
 			for(MarketOrder order : sell) {
 				if(order.getOrderID() == marketOrder.getOrderID() && found == false) {
@@ -59,8 +60,11 @@ public class MarketType
 			if(!found){
 				sell.add(marketOrder);
 			}
+			
+			if(!isInit) updateMetaDataSell();
 		}
-		updateMetaData();
+//		updateMetaData();
+		if(!isInit) updateMetaDataTotal();
 	}
 	
 	private void updateOrder(MarketOrder toUpdate, MarketOrder updateWith) {
@@ -72,33 +76,74 @@ public class MarketType
 			//TODO: Difference shall be used for trading volume
 		}
 //		if(toUp)
-		updateMetaData();
+//		updateMetaData();
 	}
 	
-	//TODO: Add NULL checks!!!!!1!1111elf
-	private void updateMetaData() {
+	private void updateMetaDataBuy() {
+		volumeBuy = 0;
+		if(buy.size() != 0) {
+			medianBuy = calculateMedian(buy, true);
+			averagePriceBuy = calculateAverage(buy);
+			highestBuy = buy.get(buy.size() - 1).getPrice();
+			buy.forEach(o -> volumeBuy += o.getVolumeRemain());
+		}
+	}
+	
+	private void updateMetaDataSell() {
+		volumeSell = 0;
+		if(sell.size() != 0) {
+			medianSell = calculateMedian(sell, false);
+			averagePriceSell = calculateAverage(sell);
+			lowestSell = sell.get(0).getPrice();
+			sell.forEach(o -> volumeSell += o.getVolumeRemain());
+		}
+	}
+	
+	private void updateMetaDataTotal() {
 		List<MarketOrder> total = new ArrayList<>(); 
 		total.addAll(buy);
 		total.addAll(sell);
 		
-		volumeBuy = 0;
-		volumeSell = 0;
 		volumeTotal = 0;
+		if(total.size() != 0) {
+			medianTotal = calculateMedian(total, false);
+			averagePriceTotal = calculateAverage(total);
+			total.forEach(o -> volumeTotal+= o.getVolumeRemain());
+		}
+	}
+	
+	//TODO: FIND THE VOLUMNE (AVG??) BUG!
+	public void updateMetaData() {
+		updateMetaDataBuy();
+		updateMetaDataSell();
+		updateMetaDataTotal();
+//		List<MarketOrder> total = new ArrayList<>(); 
+//		total.addAll(buy);
+//		total.addAll(sell);
+//		
+//		volumeBuy = 0;
+//		volumeSell = 0;
+//		volumeTotal = 0;
+//		if(buy.size() != 0) {
+//			medianBuy = calculateMedian(buy, true);
+//			averagePriceBuy = calculateAverage(buy);
+//			highestBuy = buy.get(buy.size() - 1).getPrice();
+//			buy.forEach(o -> volumeBuy += o.getVolumeRemain());
+//		}
+//		if(sell.size() != 0) {
+//			medianSell = calculateMedian(sell, false);
+//			averagePriceSell = calculateAverage(sell);
+//			lowestSell = sell.get(0).getPrice();
+//			sell.forEach(o -> volumeSell += o.getVolumeRemain());
+//		}
+//		if(total.size() != 0) {
+//			medianTotal = calculateMedian(total, false);
+//			averagePriceTotal = calculateAverage(total);
+//			total.forEach(o -> volumeTotal+= o.getVolumeRemain());
+//		}
 		
-		medianBuy = calculateMedian(buy, true);
-		medianSell = calculateMedian(sell, false);
-		medianTotal = calculateMedian(total, false);
 		
-		averagePriceBuy = calculateAverage(buy);
-		averagePriceSell = calculateAverage(sell);
-		averagePriceTotal = calculateAverage(total);
 		
-		highestBuy = buy.get(buy.size() - 1).getPrice();
-		lowestSell = sell.get(0).getPrice();
-		
-		buy.forEach(o -> volumeBuy += o.getVolumeRemain());
-		sell.forEach(o -> volumeSell += o.getVolumeRemain());
-		total.forEach(o -> volumeTotal+= o.getVolumeRemain());
 		
 		
 //		buy = buy.stream().sorted(new AscendingPriceComperator()).collect(Collectors.toList());
@@ -220,5 +265,10 @@ public class MarketType
 	
 	public List<MarketOrder> getBuy() {
 		return buy;
+	}
+	
+	public List<MarketOrder> getSell()
+	{
+		return sell;
 	}
 }

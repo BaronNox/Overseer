@@ -3,6 +3,7 @@ package net.noxumbrarum.sotacmarketer.test;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.noxumbrarum.sotacmarketer.data.MarketOrder;
 import net.noxumbrarum.sotacmarketer.data.MarketOrderPage;
 import net.noxumbrarum.sotacmarketer.data.MarketType;
 
@@ -23,7 +24,7 @@ public class MarketOrderProcessor
 		this.setMarketOrderPages(pages);
 	}
 	
-	public List<MarketType> processPages() {
+	public void processPages(List<MarketType> typeList, boolean isInit) {
 //		pages.forEach(page -> {
 //			page.getMarketOrders().forEach(order -> {
 //				int id = order.getTypeID();
@@ -38,29 +39,36 @@ public class MarketOrderProcessor
 //		});
 //		System.out.println(1);
 		
-		List<MarketType> mt = new ArrayList<>();
+//		List<MarketType> mt = new ArrayList<>();
 		pages.forEach(page -> {
 //			System.out.println(2);
+//			List<MarketOrder> orders = page.getMarketOrders();
 			page.getMarketOrders().forEach(order -> {
 //				System.out.println(3);
 				boolean found = false;
-				for(MarketType m : mt) {
+				for(MarketType m : typeList) {
 					if(m.getTypeID() == order.getTypeID()) {
 						found = true;
-						System.out.println("FOUND");
-						m.addMarketOrder(order);
+						System.out.println("FOUND " + typeList.size());
+						m.addMarketOrder(order, isInit);
+//						page.removeOrder(order);
 						break;
 					}
 				}
 				if(!found) {
 					System.out.println("NEW");
-					MarketType newMT = new MarketType(order);
-					mt.add(newMT);
+					MarketType newMT = new MarketType(order, isInit);
+					typeList.add(newMT);
+//					page.removeOrder(order);
 				}
 			});
 		});
 		
-		return mt;
+//		typeList.forEach(marketType -> {
+//			marketType.updateMetaData();
+//		});
+		
+//		return mt;
 	}
 	
 //	public void processByType() {
