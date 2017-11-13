@@ -27,10 +27,15 @@ public class Main extends Application {
 		dataLoader.loadTypeIDsFromURL();
 		
 		orderProcessor.setMarketOrderPages(at.getMarketData());
-		marketTypes = orderProcessor.processPages();
+		orderProcessor.processPages(marketTypes, true);
+		
+		System.out.println("Start udpating metadata");
+		marketTypes.forEach(marketType -> {
+			marketType.updateMetaData();
+		});
 		
 		marketTypes.forEach((t) -> {
-			if(t.getTypeID() == 34)
+			if(t.getTypeID() == 29984)
 			{
 				System.out.println("Avg: Total:Buy:Sell");
 				System.out.println(t.getAveragePriceTotal());
@@ -46,6 +51,7 @@ public class Main extends Application {
 				System.out.println(t.getVolumeTotal());
 				System.out.println(t.getVolumeBuy());
 				System.out.println(t.getVolumeSell());
+				System.out.println();
 				System.out.println("Highest Buy");
 				System.out.println(t.getHighestBuy());
 				System.out.println();
