@@ -75,6 +75,7 @@ public class MarketType
 		updateMetaData();
 	}
 	
+	//TODO: Add NULL checks!!!!!1!1111elf
 	private void updateMetaData() {
 		List<MarketOrder> total = new ArrayList<>(); 
 		total.addAll(buy);
@@ -92,8 +93,8 @@ public class MarketType
 		averagePriceSell = calculateAverage(sell);
 		averagePriceTotal = calculateAverage(total);
 		
-		highestBuy = buy.stream().max(new AscendingPriceComperator()).get().getPrice();
-		lowestSell = sell.stream().max(new DescendingPriceComperator()).get().getPrice();
+		highestBuy = buy.get(buy.size() - 1).getPrice();
+		lowestSell = sell.get(0).getPrice();
 		
 		buy.forEach(o -> volumeBuy += o.getVolumeRemain());
 		sell.forEach(o -> volumeSell += o.getVolumeRemain());
