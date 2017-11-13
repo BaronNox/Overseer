@@ -27,14 +27,40 @@ public class Main extends Application {
 		dataLoader.loadTypeIDsFromURL();
 		
 		orderProcessor.setMarketOrderPages(at.getMarketData());
-		orderProcessor.processPages().forEach(mt -> {
-			System.out.println(mt.getMedianBuy());
-			mt.getBuy().forEach(mo -> {
-				System.out.print(mo.getPrice() + " ");
-			});
-			System.out.print(System.lineSeparator());
-			System.out.print(System.lineSeparator());
+		marketTypes = orderProcessor.processPages();
+		
+		marketTypes.forEach((t) -> {
+			if(t.getTypeID() == 34)
+			{
+				System.out.println("Avg: Total:Buy:Sell");
+				System.out.println(t.getAveragePriceTotal());
+				System.out.println(t.getAveragePriceBuy());
+				System.out.println(t.getAveragePriceSell());
+				System.out.println();
+				System.out.println("Median: Total:Buy:Sell");
+				System.out.println(t.getMedianTotal());
+				System.out.println(t.getMedianBuy());
+				System.out.println(t.getMedianSell());
+				System.out.println();
+				System.out.println("Volume: Total:Buy:Sell");
+				System.out.println(t.getVolumeTotal());
+				System.out.println(t.getVolumeBuy());
+				System.out.println(t.getVolumeSell());
+				System.out.println("Highest Buy");
+				System.out.println(t.getHighestBuy());
+				System.out.println();
+				System.out.println("Lowest Sell");
+				System.out.println(t.getLowestSell());
+			}
 		});
+//		orderProcessor.processPages().forEach(mt -> {
+//			System.out.println(mt.getMedianBuy());
+//			mt.getBuy().forEach(mo -> {
+//				System.out.print(mo.getPrice() + " ");
+//			});
+//			System.out.print(System.lineSeparator());
+//			System.out.print(System.lineSeparator());
+//		});
 		
 //		orderProcessor.getOrderMapping().forEach((k, v) -> {
 //			if(DataLoader.getTypeID_Map().containsKey(k)) {
