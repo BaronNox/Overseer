@@ -81,27 +81,29 @@ public class MarketType
 		medianBuy = 0;
 		highestBuy = 0;
 		
-		buy = buy.stream().sorted(new AscendingPriceComperator()).collect(Collectors.toList());
-		sell = sell.stream().sorted(new AscendingPriceComperator()).collect(Collectors.toList());
-		
-		buy.forEach(mo -> averagePriceBuy += mo.getPrice());
-		averagePriceBuy /= (double)buy.size();
+//		buy = buy.stream().sorted(new AscendingPriceComperator()).collect(Collectors.toList());
+//		sell = sell.stream().sorted(new AscendingPriceComperator()).collect(Collectors.toList());
+//		
+//		buy.forEach(mo -> averagePriceBuy += mo.getPrice());
+//		averagePriceBuy /= (double)buy.size();
 		
 //		orders.forEach(o -> {
 //			volumeBuy += o.getVolumeRemain();
 //			averagePriceBuy += o.getPrice();
 //		});
 		
-		if(buy.size() % 2 != 0) {
-			
+//		if(buy.size() % 2 != 0) {
+//			
 //			medianBuy = (double)Math.round(buy.get((int)Math.floor((double)buy.size()/2.0d)).getPrice() * 100d) / 100d;
-			medianBuy = buy.get((int)Math.floor((double)buy.size()/2.0d)).getPrice();
-		} else if(buy.size() > 2) {
-			int firstCell = buy.size() / 2;
-			medianBuy = (buy.get(firstCell - 1).getPrice() + buy.get(firstCell).getPrice()) / 2.0d;
-		} else {
-			medianBuy = averagePriceBuy;
-		}
+//			medianBuy = buy.get((int)Math.floor((double)buy.size()/2.0d)).getPrice();
+//		} else if(buy.size() > 2) {
+//			int firstCell = buy.size() / 2;
+//			medianBuy = (buy.get(firstCell - 1).getPrice() + buy.get(firstCell).getPrice()) / 2.0d;
+//		} else {
+//			medianBuy = averagePriceBuy;
+//		}
+		
+		
 	}
 	
 	private double calculateMedian(List<MarketOrder> orderList, boolean isBuyOrder) {
