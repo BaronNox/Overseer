@@ -1,8 +1,6 @@
 package net.noxumbrarum.sotacmarketer;
 
 import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public final class References {
 	public static final String TYPE_ID_URL = "http://eve-files.com/chribba/typeid.txt";

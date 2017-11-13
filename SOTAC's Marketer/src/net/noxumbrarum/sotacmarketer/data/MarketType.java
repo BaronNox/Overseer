@@ -1,6 +1,5 @@
 package net.noxumbrarum.sotacmarketer.data;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;

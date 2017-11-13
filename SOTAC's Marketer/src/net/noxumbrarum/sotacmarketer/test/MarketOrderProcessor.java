@@ -1,12 +1,8 @@
 package net.noxumbrarum.sotacmarketer.test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
-import net.noxumbrarum.sotacmarketer.data.MarketOrder;
 import net.noxumbrarum.sotacmarketer.data.MarketOrderPage;
 import net.noxumbrarum.sotacmarketer.data.MarketType;
 
