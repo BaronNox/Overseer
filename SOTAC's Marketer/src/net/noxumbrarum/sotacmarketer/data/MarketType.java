@@ -76,10 +76,29 @@ public class MarketType
 	}
 	
 	private void updateMetaData() {
+		List<MarketOrder> total = new ArrayList<>(); 
+		total.addAll(buy);
+		total.addAll(sell);
+		
 		volumeBuy = 0;
-		averagePriceBuy = 0;
-		medianBuy = 0;
-		highestBuy = 0;
+		volumeSell = 0;
+		volumeTotal = 0;
+		
+		medianBuy = calculateMedian(buy, true);
+		medianSell = calculateMedian(sell, false);
+		medianTotal = calculateMedian(total, false);
+		
+		averagePriceBuy = calculateAverage(buy);
+		averagePriceSell = calculateAverage(sell);
+		averagePriceTotal = calculateAverage(total);
+		
+		highestBuy = buy.stream().max(new AscendingPriceComperator()).get().getPrice();
+		lowestSell = sell.stream().max(new DescendingPriceComperator()).get().getPrice();
+		
+		buy.forEach(o -> volumeBuy += o.getVolumeRemain());
+		sell.forEach(o -> volumeSell += o.getVolumeRemain());
+		total.forEach(o -> volumeTotal+= o.getVolumeRemain());
+		
 		
 //		buy = buy.stream().sorted(new AscendingPriceComperator()).collect(Collectors.toList());
 //		sell = sell.stream().sorted(new AscendingPriceComperator()).collect(Collectors.toList());
@@ -106,13 +125,13 @@ public class MarketType
 		
 	}
 	
-	private double calculateMedian(List<MarketOrder> orderList, boolean isBuyOrder) {
+	private double calculateMedian(List<MarketOrder> orderList, boolean isSellOrder) {
 		double result = 0;
 		
-		if(isBuyOrder) {
-			buy = orderList.stream().sorted(new AscendingPriceComperator()).collect(Collectors.toList());
-		} else {
+		if(isSellOrder) {
 			sell = orderList.stream().sorted(new DescendingPriceComperator()).collect(Collectors.toList());
+		} else {
+			buy = orderList.stream().sorted(new AscendingPriceComperator()).collect(Collectors.toList());
 		}
 		
 		if(orderList.size() % 2 != 0) {
@@ -142,6 +161,56 @@ public class MarketType
 	public double getMedianBuy() {
 		
 		return medianBuy;
+	}
+	
+	public double getMedianSell()
+	{
+		return medianSell;
+	}
+	
+	public double getMedianTotal()
+	{
+		return medianTotal;
+	}
+	
+	public double getAveragePriceBuy()
+	{
+		return averagePriceBuy;
+	}
+	
+	public double getAveragePriceSell()
+	{
+		return averagePriceSell;
+	}
+	
+	public double getAveragePriceTotal()
+	{
+		return averagePriceTotal;
+	}
+	
+	public double getHighestBuy()
+	{
+		return highestBuy;
+	}
+	
+	public double getLowestSell()
+	{
+		return lowestSell;
+	}
+	
+	public long getVolumeBuy()
+	{
+		return volumeBuy;
+	}
+	
+	public long getVolumeSell()
+	{
+		return volumeSell;
+	}
+	
+	public long getVolumeTotal()
+	{
+		return volumeTotal;
 	}
 	
 	public int getTypeID() {
