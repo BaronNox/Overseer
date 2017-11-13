@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 import net.noxumbrarum.sotacmarketer.data.MarketOrder;
 
-public class PriceComperator implements Comparator<MarketOrder>{
+public class AscendingPriceComperator implements Comparator<MarketOrder>{
 
 	@Override
 	public int compare(MarketOrder o1, MarketOrder o2) {

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import net.noxumbrarum.sotacmarketer.comperator.PriceComperator;
+import net.noxumbrarum.sotacmarketer.comperator.AscendingPriceComperator;
 
 public class MarketType
 {
@@ -80,8 +80,8 @@ public class MarketType
 		medianBuy = 0;
 		highestBuy = 0;
 		
-		buy = buy.stream().sorted(new PriceComperator()).collect(Collectors.toList());
-		sell = sell.stream().sorted(new PriceComperator()).collect(Collectors.toList());
+		buy = buy.stream().sorted(new AscendingPriceComperator()).collect(Collectors.toList());
+		sell = sell.stream().sorted(new AscendingPriceComperator()).collect(Collectors.toList());
 		
 		buy.forEach(mo -> averagePriceBuy += mo.getPrice());
 		averagePriceBuy /= (double)buy.size();
