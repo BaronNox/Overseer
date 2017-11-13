@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import net.noxumbrarum.sotacmarketer.comperator.AscendingPriceComperator;
+import net.noxumbrarum.sotacmarketer.comperator.DescendingPriceComperator;
 
 public class MarketType
 {
@@ -103,8 +104,14 @@ public class MarketType
 		}
 	}
 	
-	private double calculateMedian(List<MarketOrder> orderList) {
+	private double calculateMedian(List<MarketOrder> orderList, boolean isBuyOrder) {
 		double result = 0;
+		
+		if(isBuyOrder) {
+			buy = buy.stream().sorted(new AscendingPriceComperator()).collect(Collectors.toList());
+		} else {
+			sell = sell.stream().sorted(new DescendingPriceComperator()).collect(Collectors.toList());
+		}
 		
 		if(orderList.size() % 2 != 0) {
 //			medianBuy = (double)Math.round(buy.get((int)Math.floor((double)buy.size()/2.0d)).getPrice() * 100d) / 100d;
