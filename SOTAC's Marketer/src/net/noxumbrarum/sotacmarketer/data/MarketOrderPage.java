@@ -47,6 +47,10 @@ public class MarketOrderPage
 		page = null;
 	}
 	
+	public void removeOrder(MarketOrder order) {
+		if(orderList.contains(order)) orderList.remove(order);
+	}
+	
 	public List<MarketOrder> getMarketOrders() {
 		return orderList;
 	}
