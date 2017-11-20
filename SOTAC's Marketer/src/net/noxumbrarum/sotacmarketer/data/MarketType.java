@@ -37,6 +37,7 @@ public class MarketType
 	
 	public void addMarketOrder(MarketOrder marketOrder, boolean isInit) {
 		boolean found = false;
+		System.out.println(marketOrder.isBuyOrder());
 		if(marketOrder.isBuyOrder()) {
 			for(MarketOrder order : buy) {
 				if(order.getOrderID() == marketOrder.getOrderID() && found == false) {
@@ -85,7 +86,10 @@ public class MarketType
 			medianBuy = calculateMedian(buy, true);
 			averagePriceBuy = calculateAverage(buy);
 			highestBuy = buy.get(buy.size() - 1).getPrice();
-			buy.forEach(o -> volumeBuy += o.getVolumeRemain());
+			for(MarketOrder buyOrder : buy) {
+				volumeBuy += buyOrder.getVolumeRemain();
+			}
+//			buy.forEach(o -> volumeBuy += o.getVolumeRemain());
 		}
 	}
 	
@@ -95,7 +99,10 @@ public class MarketType
 			medianSell = calculateMedian(sell, false);
 			averagePriceSell = calculateAverage(sell);
 			lowestSell = sell.get(0).getPrice();
-			sell.forEach(o -> volumeSell += o.getVolumeRemain());
+			for(MarketOrder sellOrder : sell) {
+				volumeSell += sellOrder.getVolumeRemain();
+			}
+//			sell.forEach(o -> volumeSell += o.getVolumeRemain());
 		}
 	}
 	
@@ -116,7 +123,7 @@ public class MarketType
 	public void updateMetaData() {
 		updateMetaDataBuy();
 		updateMetaDataSell();
-		updateMetaDataTotal();
+//		updateMetaDataTotal();
 //		List<MarketOrder> total = new ArrayList<>(); 
 //		total.addAll(buy);
 //		total.addAll(sell);
