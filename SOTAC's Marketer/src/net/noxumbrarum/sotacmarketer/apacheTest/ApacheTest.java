@@ -49,6 +49,8 @@ public class ApacheTest
 	{
 		// TEMPS
 		List<MarketOrderPage> pages = new ArrayList<>();
+		JsonParser parser = new JsonParser();
+		JsonArray root = null;
 		// END_TEMPS
 
 		HttpResponse response = null;
@@ -82,8 +84,6 @@ public class ApacheTest
 			try(BufferedReader br = new BufferedReader(new InputStreamReader(response.getEntity().getContent())))
 			{
 				System.out.println(i);
-				JsonParser parser = new JsonParser();
-				JsonArray root = null;
 				root = parser.parse(br).getAsJsonArray();
 				MarketOrderPage page = new MarketOrderPage(root);
 				page.processPage();
