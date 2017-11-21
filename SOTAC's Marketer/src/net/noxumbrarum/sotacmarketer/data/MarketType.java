@@ -37,7 +37,6 @@ public class MarketType
 	
 	public void addMarketOrder(MarketOrder marketOrder, boolean isInit) {
 		boolean found = false;
-		System.out.println(marketOrder.isBuyOrder());
 		if(marketOrder.isBuyOrder()) {
 			for(MarketOrder order : buy) {
 				if(order.getOrderID() == marketOrder.getOrderID() && found == false) {
@@ -99,6 +98,7 @@ public class MarketType
 			medianSell = calculateMedian(sell, false);
 			averagePriceSell = calculateAverage(sell);
 			lowestSell = sell.get(0).getPrice();
+//			lowestSell = sell.get(sell.size() - 1).getPrice();
 			for(MarketOrder sellOrder : sell) {
 				volumeSell += sellOrder.getVolumeRemain();
 			}

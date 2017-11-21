@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 public class MarketOrderPage
@@ -27,12 +28,19 @@ public class MarketOrderPage
 			MarketOrder mo = new MarketOrder();
 			mo.setDuration(object.get("duration").getAsInt());
 			
-			String isBuyOrder = object.get("is_buy_order").getAsString();
-			if(isBuyOrder.equals("false")) {
-				mo.setBuyOrder(false);
-			} else if(isBuyOrder.equals("true")) {
-				mo.setBuyOrder(true);
-			}
+//			String isBuyOrder = object.get("is_buy_order").getAsString();
+//			if(isBuyOrder.equals("false")) {
+//				mo.setBuyOrder(false);
+//			} else if(isBuyOrder.equals("true")) {
+//				mo.setBuyOrder(true);
+//			}
+			
+//			object.entrySet().forEach(e -> {
+//				System.out.println(e.getKey());
+//			});
+			
+			boolean isBuyOrder = object.get("is_buy_order").getAsBoolean();
+			mo.setBuyOrder(isBuyOrder);
 			
 			mo.setLocationID(object.get("location_id").getAsLong());
 			mo.setMinVolume(object.get("min_volume").getAsLong());
@@ -42,6 +50,19 @@ public class MarketOrderPage
 			mo.setVolumeRemain(object.get("volume_remain").getAsLong());
 			mo.setVolumeTotal(object.get("volume_total").getAsLong());
 			
+			/*
+			order_id
+			type_id
+			location_id
+			volume_total
+			volume_remain
+			min_volume
+			price
+			is_buy_order
+			duration
+			issued
+			range
+			*/
 			orderList.add(mo);
 		});
 		page = null;

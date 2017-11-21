@@ -35,8 +35,8 @@ public class Main extends Application {
 		});
 		
 		marketTypes.forEach((t) -> {
-//			if(t.getTypeID() == 29984)
-			if(t.getTypeID() == 12093)
+			if(t.getTypeID() == 29984)
+//			if(t.getTypeID() == 12093)
 			{
 				System.out.println(t.getBuy().size());
 				System.out.println(t.getSell().size());
